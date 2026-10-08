@@ -1,11 +1,11 @@
 # Record-1118 native protocol: recovered portion
 
-> **Scope of this record:** I wrote the frame analysis around the earlier
+> **Scope of this record:** This frame analysis covers the earlier
 > accept/flag probe. Its state diagram retains that probe's boundary. The later
 > type-1 shell task and prepared video are documented separately in
 > [`docs/demo-evidence.md`](../docs/demo-evidence.md).
 
-The decoded record-1118 disassembly gives the arithmetic and control flow; the private isolated phone-home capture gives outbound frames against which to check them. Offsets below refer to the decoded binary, not virtual addresses in a loaded PE. No live endpoint was contacted, and **the original run captured no server application bytes**. I therefore treated each generated reply as a candidate until the isolated client acted on it.
+The decoded record-1118 disassembly gives the arithmetic and control flow; the private isolated phone-home capture gives outbound frames against which to check them. Offsets below refer to the decoded binary, not virtual addresses in a loaded PE. No live endpoint was contacted, and **the original run captured no server application bytes**. Each generated reply remained a candidate until the isolated client acted on it.
 
 ## Transport and frame boundary
 
@@ -93,7 +93,7 @@ stateDiagram-v2
     Waiting --> Parsed: complete valid frame (static path)
     Parsed --> AcceptedCandidate: true 0x56bc (static path, runtime unproven)
     Parsed --> Close: true 0x56b9 (static path)
-    Parsed --> TaskContainer: 0x5b90 or 0x5608 (static path; no lab tasking)
+    Parsed --> TaskContainer: 0x5b90 or 0x5608 (static path; outside this probe)
     AcceptedCandidate --> Waiting: next action unresolved
 ```
 

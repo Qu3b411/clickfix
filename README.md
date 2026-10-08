@@ -1,6 +1,6 @@
 # ClickFix: samples, protocol, and an isolated replay lab
 
-The saved ClickFix page put a PowerShell launcher on the clipboard and told the visitor to run it as a verification step. Following the retrieved stages led to a weaponized MSI and, inside my isolated lab, a resident implant. I reconstructed enough of its protocol to send a fixed shell task and check the implant's reply. This repository holds the saved samples, the parser and controller, the instruments I used to observe the run, and a prepared VirtualBox lab that repeats the tasking result.
+The saved ClickFix page put a PowerShell launcher on the clipboard and told the visitor to run it as a verification step. Analysis of the later captured stages led to a weaponized MSI and, inside an isolated lab, a resident implant. Reconstruction of its protocol allowed a fixed shell task to be sent and the implant's reply to be checked. This repository holds the saved samples, parser, controller, observation scripts, and a prepared VirtualBox lab that repeats the tasking result.
 
 The original browser, mailbox, and packet-capture evidence remains private. The [article](https://blog.jacobmohrbutter.com/clickfix/) follows the incident, the payload, and the controlled tasking run. This repository holds the material a researcher can inspect or replay.
 
@@ -12,7 +12,7 @@ This repository contains **live malware** inside password-protected archives. Re
 
 ## What you can examine
 
-The page and installer show how the infection starts. The controller and prepared VMs test a narrower question: will the resident implant accept a type-1 task I constructed? The checkout contains:
+The page and installer show how the infection starts. The controller and prepared VMs test a narrower question: will the resident implant accept a locally constructed type-1 task? The checkout contains:
 
 - four password-protected samples, with hashes for both the original bytes and their archives;
 - the reconstructed C2 protocol and a local controller that speaks the few messages tested against the resident implant;
@@ -39,11 +39,11 @@ The [incident image](images/incident/) is a cropped copy of the fake verificatio
 
 ## Sample provenance
 
-The four samples in `malware/samples/` came from a supplementary capture after the browser visit. I cannot establish that the page and PowerShell stages are byte-identical to what was served during that visit. An authorized live retrieval did return the same MSI bytes. The archive password is `IAcknowledgeTheRiskOfExecuting`; original and ZIP hashes are recorded in [`malware/README.md`](malware/README.md).
+The four samples in `malware/samples/` came from a supplementary capture after the browser visit. The record does not establish that the page and PowerShell stages are byte-identical to what was served during that visit. An authorized live retrieval did return the same MSI bytes. The archive password is `IAcknowledgeTheRiskOfExecuting`; original and ZIP hashes are recorded in [`malware/README.md`](malware/README.md).
 
 ## The local C2 controller
 
-The code in `c2/` constructs the implant's native frames: a 120-byte arithmetic header, 88-byte field descriptors, and XOR-transformed fields. I first tested whether changing field `0x56bc` changed the live client's connection behavior, then used a type-1 task to start a shell and recover a known marker. The listener binds only to the isolated lab network and has no upstream or forwarding path. The wire format is in [`c2/protocol-spec.md`](c2/protocol-spec.md); usage and isolation requirements are in [`c2/README.md`](c2/README.md).
+The code in `c2/` constructs the implant's native frames: a 120-byte arithmetic header, 88-byte field descriptors, and XOR-transformed fields. Changing field `0x56bc` altered the live client's connection behavior; a subsequent type-1 task started a shell and returned a known marker. The listener binds only to the isolated lab network and has no upstream or forwarding path. The wire format is in [`c2/protocol-spec.md`](c2/protocol-spec.md); usage and isolation requirements are in [`c2/README.md`](c2/README.md).
 
 ## Instrumentation
 
@@ -51,7 +51,7 @@ The Sysmon configuration and PowerShell scripts in [`instrumentation/`](instrume
 
 ## Reproduce it
 
-[`docs/reproducibility.md`](docs/reproducibility.md) lists the static and dynamic checks. [`docs/methodology.md`](docs/methodology.md) records how I collected the evidence and where each conclusion stops. To run the prepared demonstration, read [`iclickrickroll/README.md`](iclickrickroll/README.md) and run `bash iclickrickroll/setup-lab.sh`. The guide verifies and imports the archive, then prints the command to start the isolated lab.
+[`docs/reproducibility.md`](docs/reproducibility.md) lists the static and dynamic checks. [`docs/methodology.md`](docs/methodology.md) records the evidence collection and limits of each conclusion. To run the prepared demonstration, read [`iclickrickroll/README.md`](iclickrickroll/README.md) and run `bash iclickrickroll/setup-lab.sh`. The guide verifies and imports the archive, then prints the command to start the isolated lab.
 
 ## Integrity & privacy
 

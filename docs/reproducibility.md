@@ -36,7 +36,7 @@ Detonate from a clone. Leave the de-elevation wrapper's error dialog open if you
 
 The resident implant attempts to reach a live C2 address (**LIVE IOC — DO NOT NAVIGATE**). Redirect that destination inside the emulator to a local sink or controller; do not provide a route to the real endpoint. Parse your own captures using [`c2/protocol-spec.md`](../c2/protocol-spec.md) and the tools in [`c2/`](../c2/). The `server.py` `accept` and `flag0` modes test whether `0x56bc` changes the client's timing in both directions. The fixed task in `controller.py` tests the type-1 shell path by requesting a known marker and checking the reply.
 
-The capture-verification scripts show how I checked my first controlled task probe. Their input captures remain private, so the scripts document that check without replaying its historical data from this checkout.
+The capture-verification scripts document the first controlled task probe. Their input captures remain private, so that historical check cannot be rerun from this checkout alone.
 
 ## 5. Optional prepared lab
 

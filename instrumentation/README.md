@@ -1,6 +1,6 @@
 # Instrumenting the Windows guest
 
-I used these Sysmon rules and PowerShell scripts in a disposable Windows guest. They record the state before infection, watch the sample run, and export telemetry afterward. The paths and volume names are lab values; check them against your guest before running a script.
+These Sysmon rules and PowerShell scripts were used in a disposable Windows guest. They record the state before infection, watch the sample run, and export telemetry afterward. The paths and volume names are lab values; check them against your guest before running a script.
 
 > **Microsoft `Sysmon64.exe` is not redistributed here.** Download it from the official [Sysinternals Sysmon](https://learn.microsoft.com/sysinternals/downloads/sysmon) page and apply `sysmon-full.xml`.
 
@@ -16,7 +16,7 @@ I used these Sysmon rules and PowerShell scripts in a disposable Windows guest. 
 | `export-telemetry.ps1` | copies and hashes the raw records to a guest-writable disk for read-only host extraction after shutdown. |
 | `resume-telemetry.ps1` | restarts Procmon + ETW after a saved-state resume. |
 
-The before/after capture tells me which persistent objects changed. Sysmon and
+The before/after capture shows which persistent objects changed. Sysmon and
 Procmon supply the process and file sequence that led to those changes, while
 the network trace ties a socket to the emulator capture. None of those logs
 alone establishes the full execution path; the useful result comes from

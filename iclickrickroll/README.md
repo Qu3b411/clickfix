@@ -10,7 +10,7 @@ The encrypted archive is divided into twelve numbered GitHub Release assets
 and is not tracked in Git. Read [SAFETY.md](../SAFETY.md) and
 [MALWARE-WARNING.txt](MALWARE-WARNING.txt) before downloading or importing it.
 
-This package starts where my tasking experiment started: with the implant
+This package starts where the tasking experiment started: with the implant
 already alive inside the victim. The source samples in `malware/` let you
 inspect how it got there. The prepared VM lets you test whether the controller
 can speak to that resident process and make the fixed task run.
@@ -109,9 +109,9 @@ the infected disk or live malware ISO on a general-purpose host.
   assets are each under 2 GB. The extracted package is about 118.6 GB;
   running it creates disposable clones, so plan disk space accordingly.
 
-I imported the packaged baselines into a clean VirtualBox home. All 17 emulator
+The packaged baselines were imported into a clean VirtualBox home. All 17 emulator
 preflight checks passed. The resident implant beaconed, the controller delivered
-the fixed task after I typed `send-rick`, and Edge opened the local video
+the fixed task after `send-rick`, and Edge opened the local video
 fullscreen with audio. The ZIP passed its password/CRC test; the joined release
 parts matched its SHA-256.
 

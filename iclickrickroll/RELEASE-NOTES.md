@@ -3,7 +3,7 @@
 **Live malware. Authorized research in a fully isolated VirtualBox lab only.**
 Read `MALWARE-WARNING.txt` and the repository's `SAFETY.md` first.
 
-I packaged the victim with the ClickFix implant already resident and waiting
+The victim was packaged with the ClickFix implant already resident and waiting
 for tasking. Its saved RAM state travels with the Windows VM folder. The
 isolated emulator, local controller, harness, two ISOs, provenance, and checksums
 travel with it. This is the prepared state used in the
@@ -23,7 +23,7 @@ Once its emulator preflight passes, type `send-rick` in the C2 pane. The task
 is delivered on the implant's next beacon, so the video does not necessarily
 open the moment you press Enter.
 
-I tested these packaged baselines in a clean VirtualBox home. The full demo
+The packaged baselines were tested in a clean VirtualBox home. The full demo
 acceptance run passed, the ZIP passed password/CRC testing, and the twelve-part
 stream matched the archive SHA-256.
 

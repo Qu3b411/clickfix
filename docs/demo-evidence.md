@@ -1,10 +1,10 @@
 # What the task probe and video each show
 
-I first tested the task path with a fixed command in the isolated lab. My
-controller sent a frame I constructed; the resident implant started `cmd.exe`, returned
-`CFX_RICKROLL_TASK_PROOF` with the shell PID, and opened a page served inside
-the lab. I checked the exchange in packet captures and the Sysmon process tree.
-That page did not play the video. I later used the same task path for the
+The task path was first tested with a fixed command in the isolated lab. The
+local controller sent constructed frames; the resident implant started `cmd.exe`, returned
+`CFX_RICKROLL_TASK_PROOF` with the shell PID, and open a page served inside
+the lab. Packet captures and the Sysmon process tree recorded that exchange.
+The page did not play the video. The same task path later drove the
 audio/video presentation, which the
 [prepared lab](../iclickrickroll/README.md) lets a researcher repeat.
 
@@ -31,7 +31,7 @@ mechanism and its limits; the original captures are not repo files.
 ## Packaged demo acceptance
 
 The prepared lab contains the primed infected VM, isolated emulator, controller,
-media, and harness. I imported both baselines into a clean VirtualBox user home
+media, and harness. Both baselines were imported into a clean VirtualBox user home
 to test the package rather than a working analysis VM. `make iclickrickroll`
 passed all 17 emulator preflight checks; the controller accepted a beacon and
 `send-rick`; Edge opened the locally served video fullscreen. The archive

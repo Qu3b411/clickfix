@@ -1,6 +1,6 @@
 # Incident image
 
-I cropped `fake-cloudflare-verification.png` from the preserved September 25
+`fake-cloudflare-verification.png` was cropped from the preserved September 25
 screenshot so the public image shows the attacker's imitation verification
 dialog and the Win+R / Ctrl+V / Enter instruction, without the unrelated
 desktop around it. The crop's metadata was stripped. The original screenshot
