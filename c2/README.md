@@ -1,6 +1,6 @@
 # Local controller and reconstructed C2 protocol
 
-The passive capture gave me registration messages from the implant but no reply from the attacker's server. I could recover the frame arithmetic and field descriptors from those messages and the client code; I still needed to know whether the client would accept a frame I made. This directory contains the parser, a lab listener, and the small controller I used to answer that question. It constructs only the replies exercised against the resident implant. No attacker server code or operator response was recovered.
+The passive capture gave me registration messages from the implant and no reply from the attacker's server. I recovered the frame arithmetic and field descriptors from those messages and the client code. I then had to test whether the client would accept a frame I made. This directory contains the parser, a lab listener, and the controller used for that test. It constructs only the replies exercised against the resident implant. I recovered no attacker server code or operator response.
 
 > **Run only inside the isolated lab.** The implant contains a hardcoded C2 address, `45.140.205.28:443` (**LIVE IOC — DO NOT NAVIGATE**). The emulator redirects that address to `10.77.86.2:8443` with `ip_forward=0` and no external route. The tools bind to the lab network and have no upstream or forwarding code. Confirm the network boundary before starting the victim.
 
@@ -18,7 +18,7 @@ The passive capture gave me registration messages from the implant but no reply 
 
 `replay_capture.py` requires a capture file and `--helper-dir` pointing to a
 local directory containing `summarize_tcp_payloads.py`. `verify_probe.py`
-expects the original probe's capture and export directory layout. Those raw
+expects the first controlled probe's capture and export directory layout. Those raw
 captures and the private helper are not part of this source checkout; these
 scripts document how the original checks were made.
 

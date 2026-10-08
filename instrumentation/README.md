@@ -1,6 +1,6 @@
 # Instrumenting the Windows guest
 
-These are the Sysmon rules and PowerShell scripts I used to observe the sample in a disposable Windows guest. They establish a before-state, record runtime activity, and export the resulting telemetry after the run. Their paths and volume names are lab values; adapt them if your guest layout differs.
+I used these Sysmon rules and PowerShell scripts in a disposable Windows guest. They record the state before infection, watch the sample run, and export telemetry afterward. The paths and volume names are lab values; check them against your guest before running a script.
 
 > **Microsoft `Sysmon64.exe` is not redistributed here.** Download it from the official [Sysinternals Sysmon](https://learn.microsoft.com/sysinternals/downloads/sysmon) page and apply `sysmon-full.xml`.
 

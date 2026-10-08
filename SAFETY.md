@@ -1,6 +1,6 @@
 # Handling the live samples and prepared lab
 
-The sample archives contain live malware. The controller in `c2/` can send messages to its resident implant. Read this before extracting a sample or importing the prepared VM.
+The sample archives contain live malware, and the controller in `c2/` can task the resident implant. Read this before extracting a sample or importing the prepared VM.
 
 ---
 
@@ -40,4 +40,4 @@ Prose defangs indicators such as `hxxp://86[.]109[.]75[.]7` and `sites[.]google[
 
 Cloning the repository does not execute the sample. Importing the lab registers infected VMs, and `make iclickrickroll` resumes a disposable infected clone. The Windows desktop may look ordinary; its saved state already contains a resident implant. Check the adapters and host integration yourself before that command. If the preflight reports a mismatch, stop and correct the lab rather than bypassing the check.
 
-If you cannot account for a file, a VM setting, or a network path, stop and inspect it before continuing.
+If a file, VM setting, or network path differs from the instructions, stop and inspect it before continuing.

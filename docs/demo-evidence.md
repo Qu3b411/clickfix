@@ -1,15 +1,14 @@
 # What the task probe and video each show
 
-The browser window is the visible part of the demo, but it is not where I drew
-the conclusion. In the first type-1 task probe, the controller sent a frame I
-constructed; the resident implant started `cmd.exe`, returned
+I first tested the task path with a fixed command in the isolated lab. My
+controller sent a frame I constructed; the resident implant started `cmd.exe`, returned
 `CFX_RICKROLL_TASK_PROOF` with the shell PID, and opened a page served inside
-the lab. The packet captures and Sysmon process tree gave me independent
-places to check that path. The first page did not play the video. I later used
-the same task path for the audio/video presentation, which the
+the lab. I checked the exchange in packet captures and the Sysmon process tree.
+That page did not play the video. I later used the same task path for the
+audio/video presentation, which the
 [prepared lab](../iclickrickroll/README.md) lets a researcher repeat.
 
-## Original task probe
+## Controlled task probe
 
 In the isolated probe, the local controller sent four fixed frames: accept
 (`0x56bc=1`), type-1 task start, `echo CFX_RICKROLL_TASK_PROOF`, and
@@ -51,7 +50,7 @@ the demo. The VMs have only the shipped VirtualBox internal network; the
 emulator has no uplink or forwarding route. The sample's hardcoded address is
 redirected solely inside that emulator.
 
-The companion article will link the YouTube recording after upload. The video
-lets a reader see the result; the packaged VM lab supplies the bytes and saved
-state needed to rerun it. Neither the probe nor the prepared demo contacts an
-attacker server or the real C2 endpoint.
+The [article](https://blog.jacobmohrbutter.com/clickfix/) includes the
+[recorded demo](https://www.youtube.com/watch?v=VRApu5B4TR8). The packaged VM
+lab supplies the bytes and saved state needed to rerun the result. Neither the
+probe nor the prepared demo contacted an attacker server or the real C2 endpoint.

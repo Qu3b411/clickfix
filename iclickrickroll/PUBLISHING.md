@@ -1,39 +1,24 @@
-# Maintainer: publishing the repository
+# Publication record and maintenance
 
-The prepared lab release is published under `iclickrickroll-lab-v1`, but the
-`qu3b411/clickfix` repository is still private. Repository collaborators can
-inspect the release and download its assets. Other readers will be able to use
-the release links after the repository becomes public.
+The [repository](https://github.com/Qu3b411/clickfix) is public. The prepared
+lab is published under [`iclickrickroll-lab-v1`](https://github.com/Qu3b411/clickfix/releases/tag/iclickrickroll-lab-v1).
+The [article](https://blog.jacobmohrbutter.com/clickfix/) explains the incident
+and embeds the [recorded demonstration](https://www.youtube.com/watch?v=VRApu5B4TR8).
 
-The twelve archive parts and three sidecars are GitHub Release assets. They are
-not Git objects. The encrypted ZIP is about 21.3 GiB, so it was divided into
-parts below GitHub's per-asset limit. The source checkout contains the
-acquisition script, SHA-256 manifest, handling warning, and instructions.
-
-The initial source commit used the research identity `qu3b411` and the
-publication address supplied for that commit. Its author metadata will be
-visible when the repository becomes public. The lab VM folders, raw incident
-captures, original screenshots, mailbox records, and video source file are not
-tracked in this repository.
-
-## Before changing visibility
-
-Check the repository, the published release, and the companion article as one
-set. The release must contain `part00` through `part11` plus
+The release contains twelve numbered ZIP parts and three small sidecars:
 `ARCHIVE-SHA256SUMS`, `ARCHIVE-INSTRUCTIONS.txt`, and `MALWARE-WARNING.txt`.
-GitHub's asset digests must match the checked-in manifest, and the twelve-part
-stream must match the assembled ZIP hash. The guide in
-[`README.md`](README.md) uses the release tag in its download URLs.
+They are GitHub Release assets, not Git objects. The repository contains the
+acquisition scripts, checksum manifest, handling instructions, controller, and
+research notes. The infected VM folders, raw incident captures, original
+screenshots, mailbox records, and video source file are outside Git history.
 
-The article's YouTube slot is still pending. Insert the video ID only after
-uploading the intended cut and checking its caption. The video is a viewing
-copy; the VM release is the replayable artifact.
+Before changing a release asset, check its GitHub SHA-256 digest against
+[`ARCHIVE-SHA256SUMS`](ARCHIVE-SHA256SUMS). The twelve parts must join to the
+assembled ZIP hash in that manifest. Do not edit the checked-in sidecar text
+without also replacing its release asset and recording the new digest.
 
-When the publication review is complete, the remaining visibility change is:
-
-```sh
-gh repo edit qu3b411/clickfix --visibility public --accept-visibility-change-consequences
-```
-
-The release is already published. Keep the repository private until you are
-ready for the source, release assets, and their links to become public together.
+[`../manifests/SHA256SUMS.txt`](../manifests/SHA256SUMS.txt) covers source files
+in the repository. Update a line when its file changes, then run
+`sha256sum -c manifests/SHA256SUMS.txt` from the repository root. The manifest
+for the release parts is separate; source-document edits do not change the
+published VM archive.

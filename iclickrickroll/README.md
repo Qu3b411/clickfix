@@ -39,14 +39,14 @@ that order.
 
 ## Acquire and verify without importing
 
-Once the repository is public, you can acquire the archive without importing a
-VM. Read the warning, inspect [`acquire-lab.sh`](acquire-lab.sh), and run:
+You can download and verify the archive without importing a VM. Read the
+warning, inspect [`acquire-lab.sh`](acquire-lab.sh), and run:
 
 ```sh
 bash iclickrickroll/acquire-lab.sh
 ```
 
-The script retrieves all twelve numbered assets from the
+The script downloads all twelve numbered assets from the
 [`iclickrickroll-lab-v1` release](https://github.com/qu3b411/clickfix/releases/tag/iclickrickroll-lab-v1),
 checks each against the committed SHA-256 manifest, joins them in order, and
 checks the resulting ZIP's hash. An interrupted part download can resume. This
@@ -109,11 +109,11 @@ the infected disk or live malware ISO on a general-purpose host.
   assets are each under 2 GB. The extracted package is about 118.6 GB;
   running it creates disposable clones, so plan disk space accordingly.
 
-I imported the exact packaged baselines into a clean VirtualBox home and ran
-all 17 emulator preflight checks. The controller accepted `send-rick` on a
-beacon from the resident implant, and Edge opened the local video fullscreen
-with audio. The ZIP passed its password/CRC test, and joining the twelve
-release parts reproduced its SHA-256.
+I imported the packaged baselines into a clean VirtualBox home. All 17 emulator
+preflight checks passed. The resident implant beaconed, the controller delivered
+the fixed task after I typed `send-rick`, and Edge opened the local video
+fullscreen with audio. The ZIP passed its password/CRC test; the joined release
+parts matched its SHA-256.
 
 For independent reconstruction of the analysis from samples and tooling, use
 the [source-based reproducibility guide](../docs/reproducibility.md).

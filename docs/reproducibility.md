@@ -1,6 +1,6 @@
 # Reproduce the saved chain and isolated task
 
-There are two ways to use the published material. The sample archives let you derive the page, MSI, loader, and protocol findings from saved bytes. The prepared VM release begins after infection, at the point where the implant is resident; it lets you test the fixed controller task against that saved state. These routes answer related but different questions. Read [`SAFETY.md`](../SAFETY.md) before either route. Execution requires a disposable lab with no path to the internet, LAN, or host.
+The sample archives let you check the page, MSI, loader, and protocol findings against saved bytes. The prepared VM release begins later, with the implant already resident; it lets you test the fixed controller task against that saved state. Read [`SAFETY.md`](../SAFETY.md) before opening either. Any execution requires a disposable lab with no path to the internet, LAN, or host.
 
 ## Before starting
 
@@ -36,7 +36,7 @@ Detonate from a clone. Leave the de-elevation wrapper's error dialog open if you
 
 The resident implant attempts to reach a live C2 address (**LIVE IOC — DO NOT NAVIGATE**). Redirect that destination inside the emulator to a local sink or controller; do not provide a route to the real endpoint. Parse your own captures using [`c2/protocol-spec.md`](../c2/protocol-spec.md) and the tools in [`c2/`](../c2/). The `server.py` `accept` and `flag0` modes test whether `0x56bc` changes the client's timing in both directions. The fixed task in `controller.py` tests the type-1 shell path by requesting a known marker and checking the reply.
 
-The capture-verification scripts show how I checked the original probe. Their private input captures are not shipped, so they are references rather than a ready-made test of that historical run.
+The capture-verification scripts show how I checked my first controlled task probe. Their input captures remain private, so the scripts document that check without replaying its historical data from this checkout.
 
 ## 5. Optional prepared lab
 
@@ -44,6 +44,6 @@ The [`iclickrickroll` release](../iclickrickroll/README.md) contains the prepare
 
 Download all twelve numbered parts, verify their checksums, reconstruct the ZIP, and follow its `README.md` and `MALWARE-WARNING.txt`. The import registers two baselines; `make iclickrickroll` checks the emulator, creates disposable run clones, and resumes the saved victim. After the controller is ready, type `send-rick` in its pane. The task waits for the implant's next beacon, so the Edge window need not appear immediately. When that beacon arrives, the fixed task opens the locally served Creative Commons video. The lab has no route to the real C2.
 
-## Determinism notes
+## What should match
 
 Decoded-stage hashes should match exactly. Runtime PIDs and timestamps will vary. A rebuilt ZIP can have different archive bytes even when its contained files match; compare its structure and contained-file hashes. The prepared release has a fixed assembled-ZIP hash, and a download of that release must match it exactly.

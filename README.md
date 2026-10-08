@@ -2,7 +2,7 @@
 
 The saved ClickFix page put a PowerShell launcher on the clipboard and told the visitor to run it as a verification step. Following the retrieved stages led to a weaponized MSI and, inside my isolated lab, a resident implant. I reconstructed enough of its protocol to send a fixed shell task and check the implant's reply. This repository holds the saved samples, the parser and controller, the instruments I used to observe the run, and a prepared VirtualBox lab that repeats the tasking result.
 
-The original browser, mailbox, and packet-capture evidence remains private. A companion article is being prepared; its publication URL will be added here.
+The original browser, mailbox, and packet-capture evidence remains private. The [article](https://blog.jacobmohrbutter.com/clickfix/) follows the incident, the payload, and the controlled tasking run. This repository holds the material a researcher can inspect or replay.
 
 ---
 
@@ -12,14 +12,14 @@ This repository contains **live malware** inside password-protected archives. Re
 
 ## What you can examine
 
-The page and installer explain how the infection starts. The controller and prepared VMs let a researcher test the narrower result at the end of my analysis: whether this resident implant accepts the reconstructed type-1 task. The checkout contains:
+The page and installer show how the infection starts. The controller and prepared VMs test a narrower question: will the resident implant accept a type-1 task I constructed? The checkout contains:
 
 - four password-protected samples, with hashes for both the original bytes and their archives;
 - the reconstructed C2 protocol and a local controller that speaks the few messages tested against the resident implant;
 - the Sysmon configuration and capture scripts used to observe the sample; and
 - method notes that separate saved evidence, decoded code, and behavior confirmed in the lab.
 
-The [`iclickrickroll/`](iclickrickroll/) release supplies the infected Windows VM, isolated emulator, two ISOs, and harness used for the recorded demonstration. The victim is shipped with saved RAM because the implant is already resident and primed to beacon. An OVA would discard that state and turn a repeatable tasking check into another infection experiment. The encrypted VM archive therefore travels as twelve release assets, outside Git history. [`setup-lab.sh`](iclickrickroll/setup-lab.sh) downloads and verifies those parts before importing the VM folders.
+The [`iclickrickroll/`](iclickrickroll/) release supplies the infected Windows VM, isolated emulator, two ISOs, and harness used for the [recorded demonstration](https://www.youtube.com/watch?v=VRApu5B4TR8). The victim includes saved RAM: the implant is already resident and primed to beacon. An OVA would discard that state and require another infection run. The encrypted VM archive travels as twelve release assets, outside Git history. [`setup-lab.sh`](iclickrickroll/setup-lab.sh) downloads and verifies the parts before importing the VM folders.
 
 The [incident image](images/incident/) is a cropped copy of the fake verification prompt. The [demo-evidence guide](docs/demo-evidence.md) identifies what the first task probe established and what the later video demonstrates. Raw captures, original screenshots, mailbox records, and the video source file are not in this checkout.
 
@@ -51,7 +51,7 @@ The Sysmon configuration and PowerShell scripts in [`instrumentation/`](instrume
 
 ## Reproduce it
 
-[`docs/reproducibility.md`](docs/reproducibility.md) lays out the static and dynamic checks. [`docs/methodology.md`](docs/methodology.md) explains how the evidence was collected and where the conclusions stop. To run the prepared demonstration, read [`iclickrickroll/README.md`](iclickrickroll/README.md) and run `bash iclickrickroll/setup-lab.sh`. The setup guide verifies and imports the archive, then prints the command to start the isolated lab.
+[`docs/reproducibility.md`](docs/reproducibility.md) lists the static and dynamic checks. [`docs/methodology.md`](docs/methodology.md) records how I collected the evidence and where each conclusion stops. To run the prepared demonstration, read [`iclickrickroll/README.md`](iclickrickroll/README.md) and run `bash iclickrickroll/setup-lab.sh`. The guide verifies and imports the archive, then prints the command to start the isolated lab.
 
 ## Integrity & privacy
 

@@ -3,11 +3,12 @@
 **Live malware. Authorized research in a fully isolated VirtualBox lab only.**
 Read `MALWARE-WARNING.txt` and the repository's `SAFETY.md` first.
 
-I packaged the victim at the point where the ClickFix implant was already
-resident and waiting for tasking. Its saved RAM state travels with the Windows
-VM folder; the isolated emulator, local controller, harness, two ISOs,
-provenance, and checksums travel with it. The result is a prepared lab for
-repeating the specific tasking result shown in the demo.
+I packaged the victim with the ClickFix implant already resident and waiting
+for tasking. Its saved RAM state travels with the Windows VM folder. The
+isolated emulator, local controller, harness, two ISOs, provenance, and checksums
+travel with it. This is the prepared state used in the
+[recorded demo](https://www.youtube.com/watch?v=VRApu5B4TR8), not a recipe to
+infect a fresh Windows guest.
 
 Download `part00` through `part11` and the three small sidecars. Those parts
 join into one password-protected ZIP of 22,887,509,030 bytes. Password:

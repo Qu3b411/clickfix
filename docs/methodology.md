@@ -1,6 +1,6 @@
 # How I established the result
 
-Three records enter this investigation at different points: the original browser visit, a later capture of the payload chain, and execution of those saved payload bytes in an isolated lab. They answer different questions. The browser record establishes the route to the fake verification page; the supplementary samples expose the downstream code; the VM runs show what that code did under the lab's conditions. The companion article tells the story. This page records the conditions behind the technical claims.
+I have three kinds of records: the browser visit, a later capture of the payload chain, and runs of those saved payload bytes inside an isolated lab. The browser record reaches the fake verification page. The later samples expose the code beyond it. The VM runs show what those saved bytes did under my lab conditions. The [article](https://blog.jacobmohrbutter.com/clickfix/) follows the investigation; this page records the conditions behind its technical claims.
 
 ## Evidence and derived files
 
@@ -30,7 +30,7 @@ Several short runs ended before the delayed persistence writes appeared. I chang
 
 ## Protocol reconstruction & confirmation
 
-I first reconstructed the C2 frame format from code and passive traffic. To test whether the implant parsed the replies, I changed `0x56bc` between `1` and `0` and observed its connection timing change in both directions. I then sent a fixed type-1 shell task; the reply carried the known marker and echoed the shell PID. The published controller binds only to the lab network and implements those demonstrated frames.
+I reconstructed the C2 frame format from code and passive traffic. I changed `0x56bc` between `1` and `0` to test whether the implant parsed my replies; its connection timing changed in both directions. I then sent a fixed type-1 shell task. The reply carried the known marker and echoed the shell PID. The published controller binds only to the lab network and implements those demonstrated frames.
 
 ## Limits
 
