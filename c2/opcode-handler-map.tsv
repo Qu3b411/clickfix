@@ -1,0 +1,49 @@
+layer	value	handler_offset	validation_or_gate	downstream	classification	confidence
+receive_tag	0x56be	0xdf29c	8-byte value differs from ctx+0x218; callback ctx+0x28 exists	callback; normal dispatch skipped	STATICALLY_RECOVERED	high-path/low-semantics
+receive_tag	0x56bc	0xdde54	decoded byte true	ctx+0x82=1; ctx+0x98=0; 0xde8ac; optional 0x141450/0x141968	STATICALLY_RECOVERED	high
+receive_tag	0x5951	0xddfc0	byte decoded by 0x97554	0xd8cc8;0xd79ac	STATICALLY_RECOVERED	medium
+receive_tag	0x595c	0xde024	nested 0x595d 64-bit value	0xdf768; possible outgoing 0x56be	STATICALLY_RECOVERED	medium
+receive_tag	0x5b90	0xde05e	container; child tag checks	0xe0bc0;0xe0c6c;0xe31e4	STATICALLY_RECOVERED	high-path/low-semantics
+receive_tag	0x5953	0xde0da	optional 0x5601;0x5954;0x5955	0xd7a8c	STATICALLY_RECOVERED	medium
+receive_tag	0x56b9	0xdde18	decoded true byte	0x6c4dc close	STATICALLY_RECOVERED	medium
+receive_tag	0x5608	0xdde18	ctx+0x1c8 dispatcher exists; serialized field nonempty; queue ready	0x11842c queue/forward	STATICALLY_RECOVERED	medium
+receive_tag	0x5952	0xdde18	tag present; callback ctx+0x1d0 exists	0x113964	STATICALLY_RECOVERED	medium-path/low-semantics
+receive_tag	0x5bd6	0xdde18	tag present; callback ctx+0x1d8 exists	0xc60f8	STATICALLY_RECOVERED	medium-path/low-semantics
+receive_tag	0x5c4e	0xdde18	tag present; callback ctx+0x1e0 exists	0xf6964	STATICALLY_RECOVERED	medium-path/low-semantics
+container_0x5b90	0x5bac	0xe0bc0	true byte; optional 0x5601 integer	0xd8854	STATICALLY_RECOVERED	medium
+container_0x5b90	0x5b91	0xe0c6c	true byte; optional 0x5601 integer	0xd816c	STATICALLY_RECOVERED	medium
+container_0x5b90	0x5b92	0xe0c6c	container present; nested fields	additional branch	STATICALLY_RECOVERED	low
+container_0x5b90	0x5b93	0xe0c6c	container present; nested 0x5b94..0x5b98 checks	additional branch	STATICALLY_RECOVERED	low
+container_0x5b90	0x5b94..0x5b98	0xe0c6c	child tags inside 0x5b92 or 0x5b93	nested value parsing	STATICALLY_RECOVERED	low
+container_0x5b90	0x5ba3	0xe31e4	container present; nested 0x5ba4	additional branch	STATICALLY_RECOVERED	low
+container_0x5b90	0x5bab	0xe31e4	container present	nested branch	STATICALLY_RECOVERED	low
+container_0x5b90	0x5ba4..0x5ba8	0xe31e4	child tags inside 0x5ba3/0x5bab	nested value parsing	STATICALLY_RECOVERED	low
+size_dispatch_key	0x012c	0x07934	0x1150c dispatch by buffer length	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_key	0x0190	0x0f598	0x1150c dispatch by buffer length	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_key	0x01f4	0x2da00	0x1150c dispatch by buffer length	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_key	0x0258	0x1af90	0x1150c dispatch by buffer length	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_key	0x02bc	0x11f58	0x1150c dispatch by buffer length	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_key	0x03e8	0x1dd7c	0x1150c dispatch by buffer length	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_key	0x044c	0x002b0	0x1150c dispatch by buffer length	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_key	0x04b0	0x2a418	0x1150c dispatch by buffer length	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_key	0x0514	0x06c7c	0x1150c dispatch by buffer length	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_key	0x05dc	0x22244	0x1150c dispatch by buffer length; possible 0x5f0..0x5f8 subrange	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_key	0x06a4	0x1878c	0x1150c dispatch by buffer length	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_key	0x0708	0x01b30	0x1150c dispatch by buffer length	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_key	0x076c	0x2f064	0x1150c dispatch by buffer length	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_key	0x07d0	0x13c7c	0x1150c dispatch by buffer length	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_key	0x080c	0x2d02c	0x1150c dispatch by buffer length	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_key	0x0834	0x0333c	0x1150c dispatch by buffer length	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_key	0x08fc	0x1f8d4	0x1150c dispatch by buffer length	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_key	0x0960	0x2fedc	0x1150c dispatch by buffer length	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_key	0x09c4	0x289d8	0x1150c dispatch by buffer length	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_key	0x0a28	0x2bc78	0x1150c dispatch by buffer length	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_key	0x0a8c	0x2c824	0x1150c dispatch by buffer length	candidate endpoint/session state subtypes	STATICALLY_RECOVERED	medium; receive reachability unproven
+size_dispatch_key	0x0af0	0x012c4	0x1150c dispatch by buffer length	not fully traced	STATICALLY_RECOVERED	low
+size_dispatch_subkey	0x0a8d	0x2c824	string-like host and port 1..65535	0xd431c add endpoint	STATICALLY_RECOVERED	medium; receive reachability unproven
+size_dispatch_subkey	0x0a8e	0x2c824	four integer fields	0xd43d4 saves ctx+0x48..+0x60	STATICALLY_RECOVERED	medium; receive reachability unproven
+size_dispatch_subkey	0x0a8f	0x2c824	subtype recognized	0xd36ec start	STATICALLY_RECOVERED	medium; receive reachability unproven
+size_dispatch_subkey	0x0a90	0x2c824	subtype recognized	0xd397c stop/close	STATICALLY_RECOVERED	medium; receive reachability unproven
+size_dispatch_subkey	0x0a91	0x2c824	subtype recognized	0x2c7e4 status	STATICALLY_RECOVERED	medium; receive reachability unproven
+size_dispatch_subkey	0x0a92	0x2c824	boolean	ctx+0x201	STATICALLY_RECOVERED	medium; receive reachability unproven
+size_dispatch_subkey	0x0a93	0x2c824	boolean	ctx+0x204	STATICALLY_RECOVERED	medium; receive reachability unproven

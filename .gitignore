@@ -1,0 +1,130 @@
+# .gitignore — defensive against accidental publication of private/hazardous evidence.
+# Strategy: ignore broad classes of sensitive/large artifacts, then RE-ALLOW only the
+# intentional, reviewed public artifacts. Do NOT widen the allow-rules.
+
+# ---- Loose malware payloads (must only ever exist inside password-protected ZIPs) ----
+*.exe
+*.dll
+*.msi
+*.ps1
+*.bat
+*.cmd
+*.vbs
+*.js
+*.jse
+*.hta
+*.scr
+*.jar
+*.lnk
+*.bin
+*.dat
+*.raw
+*.sys
+*.elf
+*.so
+*.o
+*.msp
+*.cab
+
+# ---- VM / disk / memory / forensic images ----
+*.ova
+*.ovf
+*.vmdk
+*.vdi
+*.vhd
+*.vhdx
+*.qcow2
+*.img
+*.iso
+*.sav
+*.dmp
+*.mem
+*.core
+*.raw.img
+*.e01
+*.aff
+
+# ---- Packet captures (publish only sanitized, explicitly re-allowed ones) ----
+*.pcap
+*.pcapng
+*.etl
+*.pml
+
+# ---- Mailbox / browser / account / credential material ----
+*.mbox
+*.eml
+*.pst
+*.ost
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+places.sqlite*
+cookies.sqlite*
+formhistory.sqlite*
+favicons.sqlite*
+logins.json
+key?.db
+cert?.db
+*cookies*
+*session*
+*token*
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+id_rsa*
+id_ed25519*
+known_hosts
+*.ppk
+.bash_history
+.zsh_history
+*.xbel
+recently-used*
+
+# ---- Archives in general (re-allow only the intended malware ZIPs below) ----
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.*
+*.tgz
+*.zst
+*.gz
+
+# ---- Temp / scratch / OS cruft ----
+*~
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+__pycache__/
+scratch/
+tmp/
+
+# =====================================================================
+# RE-ALLOW: only the intentional, reviewed public artifacts.
+# Keep these rules NARROW. Never re-allow a whole evidence directory.
+# =====================================================================
+
+# Intentional, password-protected malware sample archives (one artifact per ZIP):
+!malware/samples/*.zip
+
+# Instrumentation scripts are legitimate research tooling, not malware payloads:
+!instrumentation/*.ps1
+
+# NOTE: never re-allow loose VM images, malware payloads, or incident evidence.
+# The prepared lab is distributed as encrypted GitHub Release assets.
+
+# Prepared lab archive chunks are uploaded as GitHub Release assets, never committed.
+iclickrickroll/*.zip.part[0-9][0-9]
+iclickrickroll/*.part[0-9][0-9]
+iclickrickroll/assets/
+
+# Local maintainer path to release assets (never publish).
+iclickrickroll/.release-assets-path
+
+# Downloader output if a researcher explicitly places it inside the clone.
+iclickrickroll-download/

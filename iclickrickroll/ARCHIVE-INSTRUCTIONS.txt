@@ -1,0 +1,30 @@
+ICLICKRICKROLL RESEARCH LAB — LIVE MALWARE
+Authorized researchers only. Read MALWARE-WARNING.txt before opening this archive.
+Keep the VirtualBox lab on its shipped internal network; never add NAT, bridged,
+or host-only networking. Do not run extracted binaries on the host.
+
+Archive password (type it when prompted): IAcknowledgeMaliciousContent
+
+All twelve numbered files, part00 through part11, are required. In a directory
+containing all parts and ARCHIVE-SHA256SUMS, run:
+
+    cat iclickrickroll-lab-release.zip.part* > iclickrickroll-lab-release.zip
+    sha256sum -c ARCHIVE-SHA256SUMS
+    unzip iclickrickroll-lab-release.zip
+
+The SHA-256 check covers every part and the reconstructed ZIP. Then verify the
+extracted files before importing either VM:
+
+    cd iclickrickroll-lab
+    sha256sum -c SHA256SUMS
+    ./import.sh
+    cd reproducible-lab
+    make iclickrickroll
+
+When the emulator preflight passes, type send-rick in the C2 pane and press
+Enter. On the next implant beacon, Edge opens the locally served Creative
+Commons video fullscreen. Use make clean to remove disposable run clones.
+
+This is a password-protected ZIP divided into plain chunks of at most
+1,900 MiB. Join the chunks with cat as above; Info-ZIP's "zip -s 0" is not
+applicable to these chunks. The password is an acknowledgement gate, not strong confidentiality.

@@ -1,0 +1,30 @@
+capability	entry_value	handler_offset	required_fields_or_gate	important_downstream	status	confidence	limit
+registration/host profile	outbound tags 0x56b8,0x55f0..0x55ff,0x5960..0x5965,0x56bd	outbound builder not fully traced	client has socket; local host data	UTF-16LE user/computer/OS/CPU/GPU/path; native sender	OBSERVED_AT_RUNTIME	high	Observed send content; server interpretation unknown
+connection acceptance candidate	0x56bc	0xdde54	true byte; valid frame	ctx+0x82=1; ctx+0x98=0;0xde8ac	STATICALLY_RECOVERED	high path / medium meaning	Client response distinguished at runtime; direct ctx memory not sampled
+receive/retry-state change	0x56bc=1	0xdde54	valid generated frame with true byte	client wait/reconnect interval changes to ~30.78/~33.89 seconds	OBSERVED_AT_RUNTIME	high for timing; medium for exact branch	Not a proven full registration/session acknowledgement
+correlation/session exchange	0x56be	0xdf29c	64-bit value differs ctx+0x218; callback ctx+0x28	0x979a8;0x9d280	STATICALLY_RECOVERED	medium	Identifier semantics and lifecycle unresolved
+correlation/session exchange	0x595c/0x595d	0xdf768	nested 64-bit value	can emit 0x56be	STATICALLY_RECOVERED	medium	No live response observed
+retry/state control	0x5951	0xddfc0	decoded byte	0xd8cc8;0xd79ac	UNRESOLVED	low	Do not generate
+close/self-management	0x56b9	0xdde18	true byte	0x6c4dc close	STATICALLY_RECOVERED	medium	No live response observed
+task/config container	0x5b90	0xde05e	container plus child tags	0xe0bc0;0xe0c6c;0xe31e4	STATICALLY_RECOVERED	medium path	No handler payload transmitted by lab server
+task/config child	0x5bac	0xe0bc0	true byte; optional 0x5601 integer	0xd8854	STATICALLY_RECOVERED	medium path / low semantics	Downstream effects not fully traced
+task/config child	0x5b91	0xe0c6c	true byte; optional 0x5601 integer	0xd816c	STATICALLY_RECOVERED	medium path / low semantics	Downstream effects not fully traced
+task/config child	0x5b92	0xe0c6c	container	many nested checks	UNRESOLVED	low	Not safe to generate
+task/config child	0x5b93	0xe0c6c	container with 0x5b94..0x5b98 children	many nested checks	UNRESOLVED	low	Not safe to generate
+task/config child	0x5ba3	0xe31e4	container with nested 0x5ba4	additional parser paths	UNRESOLVED	low	Not safe to generate
+task/config child	0x5bab	0xe31e4	container with 0x5ba5..0x5ba8 children	additional parser paths	UNRESOLVED	low	Not safe to generate
+embedded message forwarding	0x5608	0xdde18	ctx+0x1c8 exists	0x11842c	STATICALLY_RECOVERED	medium	Direct bridge to 0x1150c not proven
+optional state/update	0x5953/0x5954/0x5955	0xde0da	optional 0x5601; true bools	0xd7a8c	UNRESOLVED	low	Do not generate
+optional extension	0x5952	0xdde18	tag present	0x113964	UNRESOLVED	low	Do not generate
+optional extension	0x5bd6	0xdde18	tag present	0xc60f8	UNRESOLVED	low	Do not generate
+optional extension	0x5c4e	0xdde18	tag present	0xf6964	UNRESOLVED	low	Do not generate
+endpoint update candidate	size-key 0x0a8c/subkey 0x0a8d	0x2c824	host string and port 1..65535	0xd431c	STATICALLY_RECOVERED	medium local / low receive reachability	No live endpoint added
+timing/config candidate	size-key 0x0a8c/subkey 0x0a8e	0x2c824	four integers	0xd43d4	STATICALLY_RECOVERED	medium local / low receive reachability	Meaning of fields unknown
+start/stop candidate	size-key 0x0a8c/subkeys 0x0a8f/0x0a90	0x2c824	subtype recognized	0xd36ec/0xd397c	STATICALLY_RECOVERED	medium local / low receive reachability	Do not generate
+status candidate	size-key 0x0a8c/subkey 0x0a91	0x2c824	subtype recognized	0x2c7e4	STATICALLY_RECOVERED	medium local / low receive reachability	Do not generate
+boolean config candidate	size-key 0x0a8c/subkeys 0x0a92/0x0a93	0x2c824	boolean	ctx+0x201/+0x204	STATICALLY_RECOVERED	medium local / low receive reachability	Do not generate
+file interaction	unmapped size-dispatch branches	unresolved	unresolved	CreateFileW;ReadFile;WriteFile;FindFirstFile;DeleteFile;MoveFile wrappers exist	INFERRED	low	API presence does not prove receive-side task reachability
+process interaction/execution	unmapped size-dispatch branches	unresolved	unresolved	CreateProcessW;ShellExecuteW;CreatePipe wrappers exist	INFERRED	low	API presence does not prove receive-side task reachability
+network interaction/download	unmapped size-dispatch branches	unresolved	unresolved	Winsock receive/send; separate download-task code exists	INFERRED	low	Exact command mapping unresolved
+persistence-related behavior	unmapped size-dispatch branches	unresolved	unresolved	RegSetValueExW and scheduled-task related paths present	INFERRED	low	Observed persistence in a different run; server command linkage unresolved
+unknown size-dispatch handlers	size keys listed in opcode-handler-map.tsv	0x1150c dispatch	object class validation	22 candidate size-based branches	UNRESOLVED	low	Size-based branch keys are not proven C2 opcodes
